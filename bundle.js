@@ -1,582 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports={
-  "attributes": [
-    {
-      "id": "name",
-      "display": "Navn",
-      "description": "Maltets navn."
-    },
-    {
-      "id": "origin",
-      "display": "Opprinnelse",
-      "description": "Hvor maltet er produsert."
-    },
-    {
-      "id": "yield",
-      "display": "%Yield",
-      "description": "Potensielt utbytte."
-    },
-    {
-      "id": "ebc",
-      "display": "EBC",
-      "description": "Farge."
-    },
-    {
-      "id": "diasticPower",
-      "display": "Diastic power",
-      "description": "Egenskapen til å omdanne stivelse til sukker."
-    },
-    {
-      "id": "description",
-      "display": "Beskrivelse",
-      "description": "Maltets egenskaper og bruksområde."
-    },
-    {
-      "id": "maxPercentage",
-      "display": "%Max",
-      "description": "Hvor mye bør brukes av maltet."
-    },
-    {
-      "id": "requiresMash",
-      "display": "Må meskes",
-      "description": "Må malten meskes eller ikke."
-    }
-  ],
-  "malts": [
-    {
-      "name": "Acid Malt",
-      "origin": "Tyskland",
-      "yield": 58.7,
-      "ebc": 5.9,
-      "diasticPower": 0,
-      "description": "Inneholder melkesyre, og brukes for å senke pH'en i mesken",
-      "maxPercentage": 20,
-      "requiresMash": true
-    },
-    {
-      "name": "Amber",
-      "origin": "England",
-      "yield": 75,
-      "ebc": 43.3,
-      "diasticPower": 20,
-      "description": "Brukes i Mild, Brown og Old Ales. Farge og \"Biscuit\"-smak. Intens smak",
-      "maxPercentage": 20,
-      "requiresMash": true
-    },
-    {
-      "name": "Aroma/Aromatic",
-      "origin": "Belgia",
-      "yield": 78,
-      "ebc": 51.2,
-      "diasticPower": 29,
-      "description": "Sterk Maltsmak og aroma. Bra til IPA og maltsterke øl.",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Bygg / Flaket",
-      "origin": "USA",
-      "yield": 70,
-      "ebc": 3.3,
-      "diasticPower": 0,
-      "description": "Tilfører kropp til Portere og Stouts. En del protein som bidrar til tåke.",
-      "maxPercentage": 20,
-      "requiresMash": true
-    },
-    {
-      "name": "Bygg / Umaltet",
-      "origin": "USA",
-      "yield": 60.9,
-      "ebc": 3.9,
-      "diasticPower": 0,
-      "description": "Tilfører kropp. Må gjennom multistegsmesk med høymodifisert malt.",
-      "maxPercentage": 15,
-      "requiresMash": true
-    },
-    {
-      "name": "Bygg / Torrefied",
-      "origin": "USA",
-      "yield": 79,
-      "ebc": 3.3,
-      "diasticPower": 0,
-      "description": "Brukes i stedet for umaltet bygg for raskere og bedre utbytte. Bidrar med tåke.",
-      "maxPercentage": 40,
-      "requiresMash": true
-    },
-    {
-      "name": "Biscuit",
-      "origin": "Belgia",
-      "yield": 79,
-      "ebc": 45.3,
-      "diasticPower": 6,
-      "description": "Brukes i engelske ales. Bidrar med en \"kjeks\"-smak.",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Black patent",
-      "origin": "USA",
-      "yield": 55,
-      "ebc": 985,
-      "diasticPower": 0,
-      "description": "Brukes i små doser for farge, og større doser for Portere og Stouts",
-      "maxPercentage": 10,
-      "requiresMash": false
-    },
-    {
-      "name": "Black Barley",
-      "origin": "USA",
-      "yield": 55,
-      "ebc": 985,
-      "diasticPower": 0,
-      "description": "Umaltet svidd bygg. Gir tørr, kaffelignende smak.",
-      "maxPercentage": 10,
-      "requiresMash": false
-    },
-    {
-      "name": "Brown Malt",
-      "origin": "England",
-      "yield": 70,
-      "ebc": 128.1,
-      "diasticPower": 0,
-      "description": "Tørr kjekssmak. Engelske brune ales og porter. Noen Belgiske",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Brumalt",
-      "origin": "Tyskland",
-      "yield": 71.7,
-      "ebc": 45.3,
-      "diasticPower": 0,
-      "description": "Bidrar med rik maltsmak for å slippe dekoksjons mesk i Alt, Märzen og Oktoberfest",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Carapils/Dextine",
-      "origin": "USA",
-      "yield": 72,
-      "ebc": 3.9,
-      "diasticPower": 0,
-      "description": "For bedre kropp og skumdannelse",
-      "maxPercentage": 20,
-      "requiresMash": false
-    },
-    {
-      "name": "CaraAroma",
-      "origin": "Tyskland",
-      "yield": 75,
-      "ebc": 256.1,
-      "diasticPower": 0,
-      "description": "Lik Cara 120 og Caramunich. Sterk maltsma",
-      "maxPercentage": 15,
-      "requiresMash": false
-    },
-    {
-      "name": "Carafa I",
-      "origin": "Tyskland",
-      "yield": 70,
-      "ebc": 663,
-      "diasticPower": "n/a",
-      "description": "Brukes for sterk aroma og farge i Bayer og Stout",
-      "maxPercentage": 5,
-      "requiresMash": false
-    },
-    {
-      "name": "Carafa II",
-      "origin": "Tyskland",
-      "yield": 70,
-      "ebc": 811,
-      "diasticPower": "n/a",
-      "description": "Brukes for sterk aroma og farge i Bayer og Stout",
-      "maxPercentage": 5,
-      "requiresMash": false
-    },
-    {
-      "name": "Carafa III",
-      "origin": "Tyskland",
-      "yield": 70,
-      "ebc": 1034,
-      "diasticPower": "n/a",
-      "description": "Brukes for sterk aroma og farge i Bayer og Stout",
-      "maxPercentage": 5,
-      "requiresMash": false
-    },
-    {
-      "name": "CaraWheat",
-      "origin": "Tyskland",
-      "yield": 75,
-      "ebc": 90.6,
-      "diasticPower": 0,
-      "description": "Hvetemalt aroma og farge til DunkelWeizen",
-      "maxPercentage": 16,
-      "requiresMash": false
-    },
-    {
-      "name": "Caramel/Crystal",
-      "origin": "Other",
-      "yield": 75,
-      "ebc": "n/a",
-      "diasticPower": 0,
-      "description": "Fåes i forskjellige varianter i farge fra 19 til 236 ebc.",
-      "maxPercentage": 20,
-      "requiresMash": false
-    },
-    {
-      "name": "CaraMunich",
-      "origin": "Belgia",
-      "yield": 71.7,
-      "ebc": 110,
-      "diasticPower": 0,
-      "description": "Karamell, kobberfarget malt til Belgisk ale og Tyske Bock",
-      "maxPercentage": 10,
-      "requiresMash": false
-    },
-    {
-      "name": "CaraRed",
-      "origin": "Other",
-      "yield": "n/a",
-      "ebc": "n/a",
-      "diasticPower": "n/a",
-      "description": "Samme som \"Caramel/Crystal",
-      "maxPercentage": "n/a",
-      "requiresMash": "n/a"
-    },
-    {
-      "name": "CaraVienne",
-      "origin": "Belgia",
-      "yield": 73.9,
-      "ebc": 43,
-      "diasticPower": 0,
-      "description": "Lys belgisk Crystal. Brukes i Trappist og Abbey øl.",
-      "maxPercentage": 10,
-      "requiresMash": false
-    },
-    {
-      "name": "Chocolate Malt",
-      "origin": "England",
-      "yield": 73,
-      "ebc": 886,
-      "diasticPower": 0,
-      "description": "Gir rik rød til brun farge. Nøttaktig smak til Mørke Ale",
-      "maxPercentage": 10,
-      "requiresMash": false
-    },
-    {
-      "name": "ChocWheat Malt",
-      "origin": "Tyskland",
-      "yield": 71,
-      "ebc": 788,
-      "diasticPower": 0,
-      "description": "Beriker farge og aroma i Mørke hveteøl",
-      "maxPercentage": 5,
-      "requiresMash": false
-    },
-    {
-      "name": "Mais / Flaket",
-      "origin": "USA",
-      "yield": 80,
-      "ebc": 2.6,
-      "diasticPower": 0,
-      "description": "Redusere/lette maltsmak i lyse lager.",
-      "maxPercentage": 40,
-      "requiresMash": true
-    },
-    {
-      "name": "Lager Malt",
-      "origin": "Other",
-      "yield": 82.5,
-      "ebc": 3.9,
-      "diasticPower": 100,
-      "description": "Lys malt til Pils og lager. Kan brukes som basismalt",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Melanoiden Malt",
-      "origin": "Tyskland",
-      "yield": 80,
-      "ebc": 39.4,
-      "diasticPower": 10,
-      "description": "Dyp rød farge og maltsmak",
-      "maxPercentage": 15,
-      "requiresMash": true
-    },
-    {
-      "name": "Mild Malt",
-      "origin": "England",
-      "yield": 80,
-      "ebc": 7.9,
-      "diasticPower": 53,
-      "description": "Brukes i brune Ale",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Munich Malt",
-      "origin": "Tyskland",
-      "yield": 80,
-      "ebc": 17.7,
-      "diasticPower": 72,
-      "description": "Søt malt smak og mørk rødlig farge til Bock, Porter, Märzen og Oktoberfest",
-      "maxPercentage": 80,
-      "requiresMash": true
-    },
-    {
-      "name": "Havre /Flaket",
-      "origin": "Other",
-      "yield": 80,
-      "ebc": 2,
-      "diasticPower": 0,
-      "description": "Beriker med Kropp, munnfølelse og skum til mørke ale. Stout, Porter",
-      "maxPercentage": 30,
-      "requiresMash": true
-    },
-    {
-      "name": "Havre / Maltet",
-      "origin": "Other",
-      "yield": 80,
-      "ebc": 2,
-      "diasticPower": 0,
-      "description": "Beriker med Kropp, munnfølelse og skum til mørke ale. Stout, Porter",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Palemalt (2 row)",
-      "origin": "Belgia",
-      "yield": 80,
-      "ebc": 5.9,
-      "diasticPower": 60,
-      "description": "Basismalt for all øl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Palemalt (2 row)",
-      "origin": "England",
-      "yield": 78,
-      "ebc": 5.9,
-      "diasticPower": 45,
-      "description": "Basismalt for Engelsk øl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Palemalt (2 row)",
-      "origin": "USA",
-      "yield": 79,
-      "ebc": 3.9,
-      "diasticPower": 140,
-      "description": "Basismalt for all øl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Palemalt (6 row)",
-      "origin": "USA",
-      "yield": 76,
-      "ebc": 3.9,
-      "diasticPower": 150,
-      "description": "Basismalt for all øl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Pale Maris Otter",
-      "origin": "England",
-      "yield": 82.5,
-      "ebc": 5.9,
-      "diasticPower": 120,
-      "description": "Basismalt for all øl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Peat Smokes malt",
-      "origin": "England",
-      "yield": 74,
-      "ebc": 5.5,
-      "diasticPower": 0,
-      "description": "Røkt smak til Skotske ale",
-      "maxPercentage": 20,
-      "requiresMash": true
-    },
-    {
-      "name": "Pilsner (2 Row)",
-      "origin": "Belgia",
-      "yield": 79,
-      "ebc": 3.9,
-      "diasticPower": 105,
-      "description": "Basismalt for Lagerøl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Pilsner (2 Row)",
-      "origin": "Tyskland",
-      "yield": 81,
-      "ebc": 3.9,
-      "diasticPower": 110,
-      "description": "Basismalt for Lagerøl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Pilsner (2 Row)",
-      "origin": "England",
-      "yield": 78,
-      "ebc": 2,
-      "diasticPower": 60,
-      "description": "Basismalt for Lagerøl",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Ris / Flaket",
-      "origin": "USA",
-      "yield": 70,
-      "ebc": 2,
-      "diasticPower": 0,
-      "description": "Brukes for å øke alkohol uten å bidra til smak",
-      "maxPercentage": 25,
-      "requiresMash": true
-    },
-    {
-      "name": "Roasted Barley",
-      "origin": "Other",
-      "yield": 55,
-      "ebc": 591,
-      "diasticPower": 0,
-      "description": "Kaffelignende smak. 2-4% i Brown ale, 3-10% i Porter og Stout",
-      "maxPercentage": 10,
-      "requiresMash": false
-    },
-    {
-      "name": "Rugmalt",
-      "origin": "Other",
-      "yield": 63,
-      "ebc": 9.3,
-      "diasticPower": 75,
-      "description": "Tilfører en sprø krisp smak og dyp rød farge",
-      "maxPercentage": 15,
-      "requiresMash": true
-    },
-    {
-      "name": "Rug / Flaket",
-      "origin": "Other",
-      "yield": 78,
-      "ebc": 3.9,
-      "diasticPower": 0,
-      "description": "Tørr krisp smak",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Røkt malt",
-      "origin": "Tyskland",
-      "yield": 80,
-      "ebc": 17.7,
-      "diasticPower": 0,
-      "description": "Røkt smak.",
-      "maxPercentage": 100,
-      "requiresMash": true
-    },
-    {
-      "name": "Special B",
-      "origin": "Belgia",
-      "yield": 65.2,
-      "ebc": 354,
-      "diasticPower": 0,
-      "description": "Ekstrem maltsmak til Belgiske Abbey og Trappist",
-      "maxPercentage": 10,
-      "requiresMash": false
-    },
-    {
-      "name": "Toasted Malt",
-      "origin": "England",
-      "yield": 71.7,
-      "ebc": 53,
-      "diasticPower": 0,
-      "description": "Lik som Biscuit og Vienna malt",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Vienna Malt",
-      "origin": "Tyskland",
-      "yield": 78,
-      "ebc": 6.9,
-      "diasticPower": 50,
-      "description": "Litt møkere en Pale malt men lysere en Munich",
-      "maxPercentage": 90,
-      "requiresMash": true
-    },
-    {
-      "name": "Hvete malt",
-      "origin": "Belgia",
-      "yield": 81,
-      "ebc": 3.9,
-      "diasticPower": 74,
-      "description": "Til bruk i hveteøl",
-      "maxPercentage": 60,
-      "requiresMash": true
-    },
-    {
-      "name": "Hvete malt mørk",
-      "origin": "Tyskland",
-      "yield": 84,
-      "ebc": 17.7,
-      "diasticPower": 10,
-      "description": "Brukes i mørke hveteøl",
-      "maxPercentage": 20,
-      "requiresMash": true
-    },
-    {
-      "name": "Hvete malt",
-      "origin": "Tyskland",
-      "yield": 84,
-      "ebc": 3.9,
-      "diasticPower": 95,
-      "description": "Til bruk i hveteøl",
-      "maxPercentage": 60,
-      "requiresMash": true
-    },
-    {
-      "name": "Hvete / Flaket",
-      "origin": "Other",
-      "yield": 77,
-      "ebc": 3.2,
-      "diasticPower": 0,
-      "description": "Bidrar til kropp og skummdannelse",
-      "maxPercentage": 40,
-      "requiresMash": true
-    },
-    {
-      "name": "Hvete / roasted",
-      "origin": "Tyskland",
-      "yield": 54.3,
-      "ebc": 837,
-      "diasticPower": 0,
-      "description": "Sjokolade Hvetemalt. Brent smak",
-      "maxPercentage": 10,
-      "requiresMash": true
-    },
-    {
-      "name": "Puffet Hvete",
-      "origin": "Other",
-      "yield": 79,
-      "ebc": 3.3,
-      "diasticPower": 0,
-      "description": "Brukes i belgiske Hvite og Wit bier. Krever Proteinrast",
-      "maxPercentage": 40,
-      "requiresMash": true
-    }
-  ]
-}
-
-},{}],2:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -589,7 +11,7 @@ require("core-js/shim");
 
 require("regenerator/runtime");
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"core-js/shim":73,"regenerator/runtime":74}],3:[function(require,module,exports){
+},{"core-js/shim":72,"regenerator/runtime":73}],2:[function(require,module,exports){
 'use strict';
 // false -> Array#indexOf
 // true  -> Array#includes
@@ -608,7 +30,7 @@ module.exports = function(IS_INCLUDES){
     } return !IS_INCLUDES && -1;
   };
 };
-},{"./$":17}],4:[function(require,module,exports){
+},{"./$":16}],3:[function(require,module,exports){
 'use strict';
 // 0 -> Array#forEach
 // 1 -> Array#map
@@ -650,7 +72,7 @@ module.exports = function(TYPE){
     return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
   };
 };
-},{"./$":17,"./$.ctx":11}],5:[function(require,module,exports){
+},{"./$":16,"./$.ctx":10}],4:[function(require,module,exports){
 var $ = require('./$');
 function assert(condition, msg1, msg2){
   if(!condition)throw TypeError(msg2 ? msg1 + msg2 : msg1);
@@ -669,7 +91,7 @@ assert.inst = function(it, Constructor, name){
   return it;
 };
 module.exports = assert;
-},{"./$":17}],6:[function(require,module,exports){
+},{"./$":16}],5:[function(require,module,exports){
 var $ = require('./$');
 // 19.1.2.1 Object.assign(target, source, ...)
 /*eslint-disable no-unused-vars */
@@ -688,7 +110,7 @@ module.exports = Object.assign || function assign(target, source){
   }
   return T;
 };
-},{"./$":17}],7:[function(require,module,exports){
+},{"./$":16}],6:[function(require,module,exports){
 var $        = require('./$')
   , TAG      = require('./$.wks')('toStringTag')
   , toString = {}.toString;
@@ -704,7 +126,7 @@ cof.set = function(it, tag, stat){
   if(it && !$.has(it = stat ? it : it.prototype, TAG))$.hide(it, TAG, tag);
 };
 module.exports = cof;
-},{"./$":17,"./$.wks":28}],8:[function(require,module,exports){
+},{"./$":16,"./$.wks":27}],7:[function(require,module,exports){
 'use strict';
 var $        = require('./$')
   , ctx      = require('./$.ctx')
@@ -859,7 +281,7 @@ module.exports = {
     return step(0, [entry.k, entry.v]);
   }
 };
-},{"./$":17,"./$.assert":5,"./$.ctx":11,"./$.iter":16,"./$.uid":26}],9:[function(require,module,exports){
+},{"./$":16,"./$.assert":4,"./$.ctx":10,"./$.iter":15,"./$.uid":25}],8:[function(require,module,exports){
 'use strict';
 var $         = require('./$')
   , safe      = require('./$.uid').safe
@@ -943,7 +365,7 @@ module.exports = {
   WEAK: WEAK,
   ID: ID
 };
-},{"./$":17,"./$.array-methods":4,"./$.assert":5,"./$.iter":16,"./$.uid":26}],10:[function(require,module,exports){
+},{"./$":16,"./$.array-methods":3,"./$.assert":4,"./$.iter":15,"./$.uid":25}],9:[function(require,module,exports){
 'use strict';
 var $     = require('./$')
   , $def  = require('./$.def')
@@ -1011,7 +433,7 @@ module.exports = function(NAME, methods, common, IS_MAP, isWeak){
 
   return C;
 };
-},{"./$":17,"./$.assert":5,"./$.cof":7,"./$.def":12,"./$.iter":16,"./$.iter-detect":15,"./$.species":23}],11:[function(require,module,exports){
+},{"./$":16,"./$.assert":4,"./$.cof":6,"./$.def":11,"./$.iter":15,"./$.iter-detect":14,"./$.species":22}],10:[function(require,module,exports){
 // Optional / simple context binding
 var assertFunction = require('./$.assert').fn;
 module.exports = function(fn, that, length){
@@ -1031,7 +453,7 @@ module.exports = function(fn, that, length){
       return fn.apply(that, arguments);
     };
 };
-},{"./$.assert":5}],12:[function(require,module,exports){
+},{"./$.assert":4}],11:[function(require,module,exports){
 var $          = require('./$')
   , global     = $.g
   , core       = $.core
@@ -1074,13 +496,13 @@ function $def(type, name, source){
   }
 }
 module.exports = $def;
-},{"./$":17}],13:[function(require,module,exports){
+},{"./$":16}],12:[function(require,module,exports){
 module.exports = function($){
   $.FW   = true;
   $.path = $.g;
   return $;
 };
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 // Fast apply
 // http://jsperf.lnkit.com/fast-apply/5
 module.exports = function(fn, args, that){
@@ -1100,7 +522,7 @@ module.exports = function(fn, args, that){
                       : fn.call(that, args[0], args[1], args[2], args[3], args[4]);
   } return              fn.apply(that, args);
 };
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var SYMBOL_ITERATOR = require('./$.wks')('iterator')
   , SAFE_CLOSING    = false;
 try {
@@ -1120,7 +542,7 @@ module.exports = function(exec){
   } catch(e){ /* empty */ }
   return safe;
 };
-},{"./$.wks":28}],16:[function(require,module,exports){
+},{"./$.wks":27}],15:[function(require,module,exports){
 'use strict';
 var $                 = require('./$')
   , ctx               = require('./$.ctx')
@@ -1234,7 +656,7 @@ var $iter = module.exports = {
     }
   }
 };
-},{"./$":17,"./$.assert":5,"./$.cof":7,"./$.ctx":11,"./$.def":12,"./$.wks":28}],17:[function(require,module,exports){
+},{"./$":16,"./$.assert":4,"./$.cof":6,"./$.ctx":10,"./$.def":11,"./$.wks":27}],16:[function(require,module,exports){
 'use strict';
 var global = typeof self != 'undefined' ? self : Function('return this')()
   , core   = {}
@@ -1336,7 +758,7 @@ var $ = module.exports = require('./$.fw')({
 });
 if(typeof __e != 'undefined')__e = core;
 if(typeof __g != 'undefined')__g = global;
-},{"./$.fw":13}],18:[function(require,module,exports){
+},{"./$.fw":12}],17:[function(require,module,exports){
 var $ = require('./$');
 module.exports = function(object, el){
   var O      = $.toObject(object)
@@ -1346,14 +768,14 @@ module.exports = function(object, el){
     , key;
   while(length > index)if(O[key = keys[index++]] === el)return key;
 };
-},{"./$":17}],19:[function(require,module,exports){
+},{"./$":16}],18:[function(require,module,exports){
 var $            = require('./$')
   , assertObject = require('./$.assert').obj;
 module.exports = function ownKeys(it){
   assertObject(it);
   return $.getSymbols ? $.getNames(it).concat($.getSymbols(it)) : $.getNames(it);
 };
-},{"./$":17,"./$.assert":5}],20:[function(require,module,exports){
+},{"./$":16,"./$.assert":4}],19:[function(require,module,exports){
 'use strict';
 var $      = require('./$')
   , invoke = require('./$.invoke')
@@ -1377,7 +799,7 @@ module.exports = function(/* ...pargs */){
     return invoke(fn, args, that);
   };
 };
-},{"./$":17,"./$.assert":5,"./$.invoke":14}],21:[function(require,module,exports){
+},{"./$":16,"./$.assert":4,"./$.invoke":13}],20:[function(require,module,exports){
 'use strict';
 module.exports = function(regExp, replace, isStatic){
   var replacer = replace === Object(replace) ? function(part){
@@ -1387,7 +809,7 @@ module.exports = function(regExp, replace, isStatic){
     return String(isStatic ? it : this).replace(regExp, replacer);
   };
 };
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /*eslint-disable no-proto */
 var $      = require('./$')
@@ -1413,7 +835,7 @@ module.exports = {
     : undefined),
   check: check
 };
-},{"./$":17,"./$.assert":5,"./$.ctx":11}],23:[function(require,module,exports){
+},{"./$":16,"./$.assert":4,"./$.ctx":10}],22:[function(require,module,exports){
 var $ = require('./$');
 module.exports = function(C){
   if($.DESC && $.FW)$.setDesc(C, require('./$.wks')('species'), {
@@ -1421,7 +843,7 @@ module.exports = function(C){
     get: $.that
   });
 };
-},{"./$":17,"./$.wks":28}],24:[function(require,module,exports){
+},{"./$":16,"./$.wks":27}],23:[function(require,module,exports){
 'use strict';
 // true  -> String#at
 // false -> String#codePointAt
@@ -1440,7 +862,7 @@ module.exports = function(TO_STRING){
         : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
-},{"./$":17}],25:[function(require,module,exports){
+},{"./$":16}],24:[function(require,module,exports){
 'use strict';
 var $      = require('./$')
   , ctx    = require('./$.ctx')
@@ -1522,14 +944,14 @@ module.exports = {
   set:   setTask,
   clear: clearTask
 };
-},{"./$":17,"./$.cof":7,"./$.ctx":11,"./$.invoke":14}],26:[function(require,module,exports){
+},{"./$":16,"./$.cof":6,"./$.ctx":10,"./$.invoke":13}],25:[function(require,module,exports){
 var sid = 0;
 function uid(key){
   return 'Symbol(' + key + ')_' + (++sid + Math.random()).toString(36);
 }
 uid.safe = require('./$').g.Symbol || uid;
 module.exports = uid;
-},{"./$":17}],27:[function(require,module,exports){
+},{"./$":16}],26:[function(require,module,exports){
 // 22.1.3.31 Array.prototype[@@unscopables]
 var $           = require('./$')
   , UNSCOPABLES = require('./$.wks')('unscopables');
@@ -1537,14 +959,14 @@ if($.FW && !(UNSCOPABLES in []))$.hide(Array.prototype, UNSCOPABLES, {});
 module.exports = function(key){
   if($.FW)[][UNSCOPABLES][key] = true;
 };
-},{"./$":17,"./$.wks":28}],28:[function(require,module,exports){
+},{"./$":16,"./$.wks":27}],27:[function(require,module,exports){
 var global = require('./$').g
   , store  = {};
 module.exports = function(name){
   return store[name] || (store[name] =
     global.Symbol && global.Symbol[name] || require('./$.uid').safe('Symbol.' + name));
 };
-},{"./$":17,"./$.uid":26}],29:[function(require,module,exports){
+},{"./$":16,"./$.uid":25}],28:[function(require,module,exports){
 var $                = require('./$')
   , cof              = require('./$.cof')
   , $def             = require('./$.def')
@@ -1803,7 +1225,7 @@ if(classof(function(){ return arguments; }()) == 'Object')cof.classof = function
   var tag = classof(it);
   return tag == 'Object' && isFunction(it.callee) ? 'Arguments' : tag;
 };
-},{"./$":17,"./$.array-includes":3,"./$.array-methods":4,"./$.assert":5,"./$.cof":7,"./$.def":12,"./$.invoke":14,"./$.replacer":21,"./$.uid":26}],30:[function(require,module,exports){
+},{"./$":16,"./$.array-includes":2,"./$.array-methods":3,"./$.assert":4,"./$.cof":6,"./$.def":11,"./$.invoke":13,"./$.replacer":20,"./$.uid":25}],29:[function(require,module,exports){
 'use strict';
 var $       = require('./$')
   , $def    = require('./$.def')
@@ -1833,7 +1255,7 @@ $def($def.P, 'Array', {
   }
 });
 require('./$.unscope')('copyWithin');
-},{"./$":17,"./$.def":12,"./$.unscope":27}],31:[function(require,module,exports){
+},{"./$":16,"./$.def":11,"./$.unscope":26}],30:[function(require,module,exports){
 'use strict';
 var $       = require('./$')
   , $def    = require('./$.def')
@@ -1851,21 +1273,21 @@ $def($def.P, 'Array', {
   }
 });
 require('./$.unscope')('fill');
-},{"./$":17,"./$.def":12,"./$.unscope":27}],32:[function(require,module,exports){
+},{"./$":16,"./$.def":11,"./$.unscope":26}],31:[function(require,module,exports){
 var $def = require('./$.def');
 $def($def.P, 'Array', {
   // 22.1.3.9 Array.prototype.findIndex(predicate, thisArg = undefined)
   findIndex: require('./$.array-methods')(6)
 });
 require('./$.unscope')('findIndex');
-},{"./$.array-methods":4,"./$.def":12,"./$.unscope":27}],33:[function(require,module,exports){
+},{"./$.array-methods":3,"./$.def":11,"./$.unscope":26}],32:[function(require,module,exports){
 var $def = require('./$.def');
 $def($def.P, 'Array', {
   // 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
   find: require('./$.array-methods')(5)
 });
 require('./$.unscope')('find');
-},{"./$.array-methods":4,"./$.def":12,"./$.unscope":27}],34:[function(require,module,exports){
+},{"./$.array-methods":3,"./$.def":11,"./$.unscope":26}],33:[function(require,module,exports){
 var $     = require('./$')
   , ctx   = require('./$.ctx')
   , $def  = require('./$.def')
@@ -1898,7 +1320,7 @@ $def($def.S + $def.F * !require('./$.iter-detect')(function(iter){ Array.from(it
     return result;
   }
 });
-},{"./$":17,"./$.ctx":11,"./$.def":12,"./$.iter":16,"./$.iter-detect":15}],35:[function(require,module,exports){
+},{"./$":16,"./$.ctx":10,"./$.def":11,"./$.iter":15,"./$.iter-detect":14}],34:[function(require,module,exports){
 var $          = require('./$')
   , setUnscope = require('./$.unscope')
   , ITER       = require('./$.uid').safe('iter')
@@ -1933,7 +1355,7 @@ Iterators.Arguments = Iterators.Array;
 setUnscope('keys');
 setUnscope('values');
 setUnscope('entries');
-},{"./$":17,"./$.iter":16,"./$.uid":26,"./$.unscope":27}],36:[function(require,module,exports){
+},{"./$":16,"./$.iter":15,"./$.uid":25,"./$.unscope":26}],35:[function(require,module,exports){
 var $def = require('./$.def');
 $def($def.S, 'Array', {
   // 22.1.2.3 Array.of( ...items)
@@ -1947,9 +1369,9 @@ $def($def.S, 'Array', {
     return result;
   }
 });
-},{"./$.def":12}],37:[function(require,module,exports){
+},{"./$.def":11}],36:[function(require,module,exports){
 require('./$.species')(Array);
-},{"./$.species":23}],38:[function(require,module,exports){
+},{"./$.species":22}],37:[function(require,module,exports){
 'use strict';
 var $    = require('./$')
   , NAME = 'name'
@@ -1968,7 +1390,7 @@ NAME in FunctionProto || $.FW && $.DESC && setDesc(FunctionProto, NAME, {
     $.has(this, NAME) || setDesc(this, NAME, $.desc(0, value));
   }
 });
-},{"./$":17}],39:[function(require,module,exports){
+},{"./$":16}],38:[function(require,module,exports){
 'use strict';
 var strong = require('./$.collection-strong');
 
@@ -1984,7 +1406,7 @@ require('./$.collection')('Map', {
     return strong.def(this, key === 0 ? 0 : key, value);
   }
 }, strong, true);
-},{"./$.collection":10,"./$.collection-strong":8}],40:[function(require,module,exports){
+},{"./$.collection":9,"./$.collection-strong":7}],39:[function(require,module,exports){
 var Infinity = 1 / 0
   , $def  = require('./$.def')
   , E     = Math.E
@@ -2107,7 +1529,7 @@ $def($def.S, 'Math', {
     return (it > 0 ? floor : ceil)(it);
   }
 });
-},{"./$.def":12}],41:[function(require,module,exports){
+},{"./$.def":11}],40:[function(require,module,exports){
 'use strict';
 var $          = require('./$')
   , isObject   = $.isObject
@@ -2152,7 +1574,7 @@ if($.FW && !(Number('0o1') && Number('0b1'))){
   proto.constructor = Number;
   $.hide($.g, NUMBER, Number);
 }
-},{"./$":17}],42:[function(require,module,exports){
+},{"./$":16}],41:[function(require,module,exports){
 var $     = require('./$')
   , $def  = require('./$.def')
   , abs   = Math.abs
@@ -2188,11 +1610,11 @@ $def($def.S, 'Number', {
   // 20.1.2.13 Number.parseInt(string, radix)
   parseInt: parseInt
 });
-},{"./$":17,"./$.def":12}],43:[function(require,module,exports){
+},{"./$":16,"./$.def":11}],42:[function(require,module,exports){
 // 19.1.3.1 Object.assign(target, source)
 var $def = require('./$.def');
 $def($def.S, 'Object', {assign: require('./$.assign')});
-},{"./$.assign":6,"./$.def":12}],44:[function(require,module,exports){
+},{"./$.assign":5,"./$.def":11}],43:[function(require,module,exports){
 // 19.1.3.10 Object.is(value1, value2)
 var $def = require('./$.def');
 $def($def.S, 'Object', {
@@ -2200,11 +1622,11 @@ $def($def.S, 'Object', {
     return x === y ? x !== 0 || 1 / x === 1 / y : x != x && y != y;
   }
 });
-},{"./$.def":12}],45:[function(require,module,exports){
+},{"./$.def":11}],44:[function(require,module,exports){
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $def = require('./$.def');
 $def($def.S, 'Object', {setPrototypeOf: require('./$.set-proto').set});
-},{"./$.def":12,"./$.set-proto":22}],46:[function(require,module,exports){
+},{"./$.def":11,"./$.set-proto":21}],45:[function(require,module,exports){
 var $        = require('./$')
   , $def     = require('./$.def')
   , isObject = $.isObject
@@ -2243,7 +1665,7 @@ wrapObjectMethod('getOwnPropertyDescriptor', 4);
 wrapObjectMethod('getPrototypeOf', 5);
 wrapObjectMethod('keys');
 wrapObjectMethod('getOwnPropertyNames');
-},{"./$":17,"./$.def":12}],47:[function(require,module,exports){
+},{"./$":16,"./$.def":11}],46:[function(require,module,exports){
 'use strict';
 // 19.1.3.6 Object.prototype.toString()
 var $   = require('./$')
@@ -2253,7 +1675,7 @@ tmp[require('./$.wks')('toStringTag')] = 'z';
 if($.FW && cof(tmp) != 'z')$.hide(Object.prototype, 'toString', function toString(){
   return '[object ' + cof.classof(this) + ']';
 });
-},{"./$":17,"./$.cof":7,"./$.wks":28}],48:[function(require,module,exports){
+},{"./$":16,"./$.cof":6,"./$.wks":27}],47:[function(require,module,exports){
 'use strict';
 var $       = require('./$')
   , ctx     = require('./$.ctx')
@@ -2458,7 +1880,7 @@ $def($def.S + $def.F * !require('./$.iter-detect')(function(iter){
     });
   }
 });
-},{"./$":17,"./$.assert":5,"./$.cof":7,"./$.ctx":11,"./$.def":12,"./$.iter":16,"./$.iter-detect":15,"./$.species":23,"./$.task":25,"./$.uid":26,"./$.wks":28}],49:[function(require,module,exports){
+},{"./$":16,"./$.assert":4,"./$.cof":6,"./$.ctx":10,"./$.def":11,"./$.iter":15,"./$.iter-detect":14,"./$.species":22,"./$.task":24,"./$.uid":25,"./$.wks":27}],48:[function(require,module,exports){
 var $         = require('./$')
   , $def      = require('./$.def')
   , setProto  = require('./$.set-proto')
@@ -2591,7 +2013,7 @@ if(setProto)reflect.setPrototypeOf = function setPrototypeOf(target, proto){
 
 $def($def.G, {Reflect: {}});
 $def($def.S, 'Reflect', reflect);
-},{"./$":17,"./$.assert":5,"./$.ctx":11,"./$.def":12,"./$.iter":16,"./$.own-keys":19,"./$.set-proto":22,"./$.uid":26}],50:[function(require,module,exports){
+},{"./$":16,"./$.assert":4,"./$.ctx":10,"./$.def":11,"./$.iter":15,"./$.own-keys":18,"./$.set-proto":21,"./$.uid":25}],49:[function(require,module,exports){
 var $      = require('./$')
   , cof    = require('./$.cof')
   , RegExp = $.g.RegExp
@@ -2622,7 +2044,7 @@ if($.FW && $.DESC){
   });
 }
 require('./$.species')(RegExp);
-},{"./$":17,"./$.cof":7,"./$.replacer":21,"./$.species":23}],51:[function(require,module,exports){
+},{"./$":16,"./$.cof":6,"./$.replacer":20,"./$.species":22}],50:[function(require,module,exports){
 'use strict';
 var strong = require('./$.collection-strong');
 
@@ -2633,13 +2055,13 @@ require('./$.collection')('Set', {
     return strong.def(this, value = value === 0 ? 0 : value, value);
   }
 }, strong);
-},{"./$.collection":10,"./$.collection-strong":8}],52:[function(require,module,exports){
+},{"./$.collection":9,"./$.collection-strong":7}],51:[function(require,module,exports){
 var $def = require('./$.def');
 $def($def.P, 'String', {
   // 21.1.3.3 String.prototype.codePointAt(pos)
   codePointAt: require('./$.string-at')(false)
 });
-},{"./$.def":12,"./$.string-at":24}],53:[function(require,module,exports){
+},{"./$.def":11,"./$.string-at":23}],52:[function(require,module,exports){
 'use strict';
 var $    = require('./$')
   , cof  = require('./$.cof')
@@ -2658,7 +2080,7 @@ $def($def.P, 'String', {
     return that.slice(end - searchString.length, end) === searchString;
   }
 });
-},{"./$":17,"./$.cof":7,"./$.def":12}],54:[function(require,module,exports){
+},{"./$":16,"./$.cof":6,"./$.def":11}],53:[function(require,module,exports){
 var $def    = require('./$.def')
   , toIndex = require('./$').toIndex
   , fromCharCode = String.fromCharCode;
@@ -2680,7 +2102,7 @@ $def($def.S, 'String', {
     } return res.join('');
   }
 });
-},{"./$":17,"./$.def":12}],55:[function(require,module,exports){
+},{"./$":16,"./$.def":11}],54:[function(require,module,exports){
 'use strict';
 var $    = require('./$')
   , cof  = require('./$.cof')
@@ -2693,7 +2115,7 @@ $def($def.P, 'String', {
     return !!~String($.assertDefined(this)).indexOf(searchString, arguments[1]);
   }
 });
-},{"./$":17,"./$.cof":7,"./$.def":12}],56:[function(require,module,exports){
+},{"./$":16,"./$.cof":6,"./$.def":11}],55:[function(require,module,exports){
 var set   = require('./$').set
   , at    = require('./$.string-at')(true)
   , ITER  = require('./$.uid').safe('iter')
@@ -2714,7 +2136,7 @@ $iter.std(String, 'String', function(iterated){
   iter.i += point.length;
   return step(0, point);
 });
-},{"./$":17,"./$.iter":16,"./$.string-at":24,"./$.uid":26}],57:[function(require,module,exports){
+},{"./$":16,"./$.iter":15,"./$.string-at":23,"./$.uid":25}],56:[function(require,module,exports){
 var $    = require('./$')
   , $def = require('./$.def');
 
@@ -2732,7 +2154,7 @@ $def($def.S, 'String', {
     } return res.join('');
   }
 });
-},{"./$":17,"./$.def":12}],58:[function(require,module,exports){
+},{"./$":16,"./$.def":11}],57:[function(require,module,exports){
 'use strict';
 var $    = require('./$')
   , $def = require('./$.def');
@@ -2748,7 +2170,7 @@ $def($def.P, 'String', {
     return res;
   }
 });
-},{"./$":17,"./$.def":12}],59:[function(require,module,exports){
+},{"./$":16,"./$.def":11}],58:[function(require,module,exports){
 'use strict';
 var $    = require('./$')
   , cof  = require('./$.cof')
@@ -2764,7 +2186,7 @@ $def($def.P, 'String', {
     return that.slice(index, index + searchString.length) === searchString;
   }
 });
-},{"./$":17,"./$.cof":7,"./$.def":12}],60:[function(require,module,exports){
+},{"./$":16,"./$.cof":6,"./$.def":11}],59:[function(require,module,exports){
 'use strict';
 // ECMAScript 6 symbols shim
 var $        = require('./$')
@@ -2866,7 +2288,7 @@ setTag(Symbol, 'Symbol');
 setTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setTag($.g.JSON, 'JSON', true);
-},{"./$":17,"./$.cof":7,"./$.def":12,"./$.keyof":18,"./$.uid":26,"./$.wks":28}],61:[function(require,module,exports){
+},{"./$":16,"./$.cof":6,"./$.def":11,"./$.keyof":17,"./$.uid":25,"./$.wks":27}],60:[function(require,module,exports){
 'use strict';
 var $         = require('./$')
   , weak      = require('./$.collection-weak')
@@ -2907,7 +2329,7 @@ if($.FW && new WeakMap().set((Object.freeze || Object)(tmp), 7).get(tmp) != 7){
     };
   });
 }
-},{"./$":17,"./$.collection":10,"./$.collection-weak":9}],62:[function(require,module,exports){
+},{"./$":16,"./$.collection":9,"./$.collection-weak":8}],61:[function(require,module,exports){
 'use strict';
 var weak = require('./$.collection-weak');
 
@@ -2918,14 +2340,14 @@ require('./$.collection')('WeakSet', {
     return weak.def(this, value, true);
   }
 }, weak, false, true);
-},{"./$.collection":10,"./$.collection-weak":9}],63:[function(require,module,exports){
+},{"./$.collection":9,"./$.collection-weak":8}],62:[function(require,module,exports){
 // https://github.com/domenic/Array.prototype.includes
 var $def = require('./$.def');
 $def($def.P, 'Array', {
   includes: require('./$.array-includes')(true)
 });
 require('./$.unscope')('includes');
-},{"./$.array-includes":3,"./$.def":12,"./$.unscope":27}],64:[function(require,module,exports){
+},{"./$.array-includes":2,"./$.def":11,"./$.unscope":26}],63:[function(require,module,exports){
 // https://gist.github.com/WebReflection/9353781
 var $       = require('./$')
   , $def    = require('./$.def')
@@ -2941,7 +2363,7 @@ $def($def.S, 'Object', {
     return result;
   }
 });
-},{"./$":17,"./$.def":12,"./$.own-keys":19}],65:[function(require,module,exports){
+},{"./$":16,"./$.def":11,"./$.own-keys":18}],64:[function(require,module,exports){
 // http://goo.gl/XkBrjD
 var $    = require('./$')
   , $def = require('./$.def');
@@ -2962,13 +2384,13 @@ $def($def.S, 'Object', {
   values:  createObjectToArray(false),
   entries: createObjectToArray(true)
 });
-},{"./$":17,"./$.def":12}],66:[function(require,module,exports){
+},{"./$":16,"./$.def":11}],65:[function(require,module,exports){
 // https://gist.github.com/kangax/9698100
 var $def = require('./$.def');
 $def($def.S, 'RegExp', {
   escape: require('./$.replacer')(/([\\\-[\]{}()*+?.,^$|])/g, '\\$1', true)
 });
-},{"./$.def":12,"./$.replacer":21}],67:[function(require,module,exports){
+},{"./$.def":11,"./$.replacer":20}],66:[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var $def  = require('./$.def')
   , forOf = require('./$.iter').forOf;
@@ -2979,13 +2401,13 @@ $def($def.P, 'Set', {
     return arr;
   }
 });
-},{"./$.def":12,"./$.iter":16}],68:[function(require,module,exports){
+},{"./$.def":11,"./$.iter":15}],67:[function(require,module,exports){
 // https://github.com/mathiasbynens/String.prototype.at
 var $def = require('./$.def');
 $def($def.P, 'String', {
   at: require('./$.string-at')(true)
 });
-},{"./$.def":12,"./$.string-at":24}],69:[function(require,module,exports){
+},{"./$.def":11,"./$.string-at":23}],68:[function(require,module,exports){
 // JavaScript 1.6 / Strawman array statics shim
 var $       = require('./$')
   , $def    = require('./$.def')
@@ -3002,7 +2424,7 @@ setStatics('indexOf,every,some,forEach,map,filter,find,findIndex,includes', 3);
 setStatics('join,slice,concat,push,splice,unshift,sort,lastIndexOf,' +
            'reduce,reduceRight,copyWithin,fill,turn');
 $def($def.S, 'Array', statics);
-},{"./$":17,"./$.ctx":11,"./$.def":12}],70:[function(require,module,exports){
+},{"./$":16,"./$.ctx":10,"./$.def":11}],69:[function(require,module,exports){
 require('./es6.array.iterator');
 var $         = require('./$')
   , Iterators = require('./$.iter').Iterators
@@ -3012,14 +2434,14 @@ if($.FW && NodeList && !(ITERATOR in NodeList.prototype)){
   $.hide(NodeList.prototype, ITERATOR, Iterators.Array);
 }
 Iterators.NodeList = Iterators.Array;
-},{"./$":17,"./$.iter":16,"./$.wks":28,"./es6.array.iterator":35}],71:[function(require,module,exports){
+},{"./$":16,"./$.iter":15,"./$.wks":27,"./es6.array.iterator":34}],70:[function(require,module,exports){
 var $def  = require('./$.def')
   , $task = require('./$.task');
 $def($def.G + $def.B, {
   setImmediate:   $task.set,
   clearImmediate: $task.clear
 });
-},{"./$.def":12,"./$.task":25}],72:[function(require,module,exports){
+},{"./$.def":11,"./$.task":24}],71:[function(require,module,exports){
 // ie9- setTimeout & setInterval additional parameters fix
 var $       = require('./$')
   , $def    = require('./$.def')
@@ -3039,7 +2461,7 @@ $def($def.G + $def.B + $def.F * MSIE, {
   setTimeout:  wrap($.g.setTimeout),
   setInterval: wrap($.g.setInterval)
 });
-},{"./$":17,"./$.def":12,"./$.invoke":14,"./$.partial":20}],73:[function(require,module,exports){
+},{"./$":16,"./$.def":11,"./$.invoke":13,"./$.partial":19}],72:[function(require,module,exports){
 require('./modules/es5');
 require('./modules/es6.symbol');
 require('./modules/es6.object.assign');
@@ -3085,7 +2507,7 @@ require('./modules/web.timers');
 require('./modules/web.immediate');
 require('./modules/web.dom.iterable');
 module.exports = require('./modules/$').core;
-},{"./modules/$":17,"./modules/es5":29,"./modules/es6.array.copy-within":30,"./modules/es6.array.fill":31,"./modules/es6.array.find":33,"./modules/es6.array.find-index":32,"./modules/es6.array.from":34,"./modules/es6.array.iterator":35,"./modules/es6.array.of":36,"./modules/es6.array.species":37,"./modules/es6.function.name":38,"./modules/es6.map":39,"./modules/es6.math":40,"./modules/es6.number.constructor":41,"./modules/es6.number.statics":42,"./modules/es6.object.assign":43,"./modules/es6.object.is":44,"./modules/es6.object.set-prototype-of":45,"./modules/es6.object.statics-accept-primitives":46,"./modules/es6.object.to-string":47,"./modules/es6.promise":48,"./modules/es6.reflect":49,"./modules/es6.regexp":50,"./modules/es6.set":51,"./modules/es6.string.code-point-at":52,"./modules/es6.string.ends-with":53,"./modules/es6.string.from-code-point":54,"./modules/es6.string.includes":55,"./modules/es6.string.iterator":56,"./modules/es6.string.raw":57,"./modules/es6.string.repeat":58,"./modules/es6.string.starts-with":59,"./modules/es6.symbol":60,"./modules/es6.weak-map":61,"./modules/es6.weak-set":62,"./modules/es7.array.includes":63,"./modules/es7.object.get-own-property-descriptors":64,"./modules/es7.object.to-array":65,"./modules/es7.regexp.escape":66,"./modules/es7.set.to-json":67,"./modules/es7.string.at":68,"./modules/js.array.statics":69,"./modules/web.dom.iterable":70,"./modules/web.immediate":71,"./modules/web.timers":72}],74:[function(require,module,exports){
+},{"./modules/$":16,"./modules/es5":28,"./modules/es6.array.copy-within":29,"./modules/es6.array.fill":30,"./modules/es6.array.find":32,"./modules/es6.array.find-index":31,"./modules/es6.array.from":33,"./modules/es6.array.iterator":34,"./modules/es6.array.of":35,"./modules/es6.array.species":36,"./modules/es6.function.name":37,"./modules/es6.map":38,"./modules/es6.math":39,"./modules/es6.number.constructor":40,"./modules/es6.number.statics":41,"./modules/es6.object.assign":42,"./modules/es6.object.is":43,"./modules/es6.object.set-prototype-of":44,"./modules/es6.object.statics-accept-primitives":45,"./modules/es6.object.to-string":46,"./modules/es6.promise":47,"./modules/es6.reflect":48,"./modules/es6.regexp":49,"./modules/es6.set":50,"./modules/es6.string.code-point-at":51,"./modules/es6.string.ends-with":52,"./modules/es6.string.from-code-point":53,"./modules/es6.string.includes":54,"./modules/es6.string.iterator":55,"./modules/es6.string.raw":56,"./modules/es6.string.repeat":57,"./modules/es6.string.starts-with":58,"./modules/es6.symbol":59,"./modules/es6.weak-map":60,"./modules/es6.weak-set":61,"./modules/es7.array.includes":62,"./modules/es7.object.get-own-property-descriptors":63,"./modules/es7.object.to-array":64,"./modules/es7.regexp.escape":65,"./modules/es7.set.to-json":66,"./modules/es7.string.at":67,"./modules/js.array.statics":68,"./modules/web.dom.iterable":69,"./modules/web.immediate":70,"./modules/web.timers":71}],73:[function(require,module,exports){
 (function (global){
 /**
  * Copyright (c) 2014, Facebook, Inc.
@@ -3653,17 +3075,336 @@ module.exports = require('./modules/$').core;
 );
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],75:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module.exports = require("./lib/babel/polyfill");
 
-},{"./lib/babel/polyfill":2}],76:[function(require,module,exports){
+},{"./lib/babel/polyfill":1}],75:[function(require,module,exports){
 module.exports = require("babel-core/polyfill");
 
-},{"babel-core/polyfill":75}],77:[function(require,module,exports){
+},{"babel-core/polyfill":74}],76:[function(require,module,exports){
+"use strict";
+var window = require("global/window")
+var once = require("once")
+var parseHeaders = require("parse-headers")
+
+
+var XHR = window.XMLHttpRequest || noop
+var XDR = "withCredentials" in (new XHR()) ? XHR : window.XDomainRequest
+
+module.exports = createXHR
+
+function createXHR(options, callback) {
+    function readystatechange() {
+        if (xhr.readyState === 4) {
+            loadFunc()
+        }
+    }
+
+    function getBody() {
+        // Chrome with requestType=blob throws errors arround when even testing access to responseText
+        var body = undefined
+
+        if (xhr.response) {
+            body = xhr.response
+        } else if (xhr.responseType === "text" || !xhr.responseType) {
+            body = xhr.responseText || xhr.responseXML
+        }
+
+        if (isJson) {
+            try {
+                body = JSON.parse(body)
+            } catch (e) {}
+        }
+
+        return body
+    }
+    
+    var failureResponse = {
+                body: undefined,
+                headers: {},
+                statusCode: 0,
+                method: method,
+                url: uri,
+                rawRequest: xhr
+            }
+    
+    function errorFunc(evt) {
+        clearTimeout(timeoutTimer)
+        if(!(evt instanceof Error)){
+            evt = new Error("" + (evt || "unknown") )
+        }
+        evt.statusCode = 0
+        callback(evt, failureResponse)
+    }
+
+    // will load the data & process the response in a special response object
+    function loadFunc() {
+        clearTimeout(timeoutTimer)
+        
+        var status = (xhr.status === 1223 ? 204 : xhr.status)
+        var response = failureResponse
+        var err = null
+        
+        if (status !== 0){
+            response = {
+                body: getBody(),
+                statusCode: status,
+                method: method,
+                headers: {},
+                url: uri,
+                rawRequest: xhr
+            }
+            if(xhr.getAllResponseHeaders){ //remember xhr can in fact be XDR for CORS in IE
+                response.headers = parseHeaders(xhr.getAllResponseHeaders())
+            }
+        } else {
+            err = new Error("Internal XMLHttpRequest Error")
+        }
+        callback(err, response, response.body)
+        
+    }
+    
+    if (typeof options === "string") {
+        options = { uri: options }
+    }
+
+    options = options || {}
+    if(typeof callback === "undefined"){
+        throw new Error("callback argument missing")
+    }
+    callback = once(callback)
+
+    var xhr = options.xhr || null
+
+    if (!xhr) {
+        if (options.cors || options.useXDR) {
+            xhr = new XDR()
+        }else{
+            xhr = new XHR()
+        }
+    }
+
+    var key
+    var uri = xhr.url = options.uri || options.url
+    var method = xhr.method = options.method || "GET"
+    var body = options.body || options.data
+    var headers = xhr.headers = options.headers || {}
+    var sync = !!options.sync
+    var isJson = false
+    var timeoutTimer
+
+    if ("json" in options) {
+        isJson = true
+        headers["Accept"] || (headers["Accept"] = "application/json") //Don't override existing accept header declared by user
+        if (method !== "GET" && method !== "HEAD") {
+            headers["Content-Type"] = "application/json"
+            body = JSON.stringify(options.json)
+        }
+    }
+
+    xhr.onreadystatechange = readystatechange
+    xhr.onload = loadFunc
+    xhr.onerror = errorFunc
+    // IE9 must have onprogress be set to a unique function.
+    xhr.onprogress = function () {
+        // IE must die
+    }
+    xhr.ontimeout = errorFunc
+    xhr.open(method, uri, !sync)
+    //has to be after open
+    xhr.withCredentials = !!options.withCredentials
+    
+    // Cannot set timeout with sync request
+    // not setting timeout on the xhr object, because of old webkits etc. not handling that correctly
+    // both npm's request and jquery 1.x use this kind of timeout, so this is being consistent
+    if (!sync && options.timeout > 0 ) {
+        timeoutTimer = setTimeout(function(){
+            xhr.abort("timeout");
+        }, options.timeout+2 );
+    }
+
+    if (xhr.setRequestHeader) {
+        for(key in headers){
+            if(headers.hasOwnProperty(key)){
+                xhr.setRequestHeader(key, headers[key])
+            }
+        }
+    } else if (options.headers) {
+        throw new Error("Headers cannot be set on an XDomainRequest object")
+    }
+
+    if ("responseType" in options) {
+        xhr.responseType = options.responseType
+    }
+    
+    if ("beforeSend" in options && 
+        typeof options.beforeSend === "function"
+    ) {
+        options.beforeSend(xhr)
+    }
+
+    xhr.send(body)
+
+    return xhr
+
+
+}
+
+
+function noop() {}
+
+},{"global/window":77,"once":78,"parse-headers":82}],77:[function(require,module,exports){
+(function (global){
+if (typeof window !== "undefined") {
+    module.exports = window;
+} else if (typeof global !== "undefined") {
+    module.exports = global;
+} else if (typeof self !== "undefined"){
+    module.exports = self;
+} else {
+    module.exports = {};
+}
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],78:[function(require,module,exports){
+module.exports = once
+
+once.proto = once(function () {
+  Object.defineProperty(Function.prototype, 'once', {
+    value: function () {
+      return once(this)
+    },
+    configurable: true
+  })
+})
+
+function once (fn) {
+  var called = false
+  return function () {
+    if (called) return
+    called = true
+    return fn.apply(this, arguments)
+  }
+}
+
+},{}],79:[function(require,module,exports){
+var isFunction = require('is-function')
+
+module.exports = forEach
+
+var toString = Object.prototype.toString
+var hasOwnProperty = Object.prototype.hasOwnProperty
+
+function forEach(list, iterator, context) {
+    if (!isFunction(iterator)) {
+        throw new TypeError('iterator must be a function')
+    }
+
+    if (arguments.length < 3) {
+        context = this
+    }
+    
+    if (toString.call(list) === '[object Array]')
+        forEachArray(list, iterator, context)
+    else if (typeof list === 'string')
+        forEachString(list, iterator, context)
+    else
+        forEachObject(list, iterator, context)
+}
+
+function forEachArray(array, iterator, context) {
+    for (var i = 0, len = array.length; i < len; i++) {
+        if (hasOwnProperty.call(array, i)) {
+            iterator.call(context, array[i], i, array)
+        }
+    }
+}
+
+function forEachString(string, iterator, context) {
+    for (var i = 0, len = string.length; i < len; i++) {
+        // no such thing as a sparse string.
+        iterator.call(context, string.charAt(i), i, string)
+    }
+}
+
+function forEachObject(object, iterator, context) {
+    for (var k in object) {
+        if (hasOwnProperty.call(object, k)) {
+            iterator.call(context, object[k], k, object)
+        }
+    }
+}
+
+},{"is-function":80}],80:[function(require,module,exports){
+module.exports = isFunction
+
+var toString = Object.prototype.toString
+
+function isFunction (fn) {
+  var string = toString.call(fn)
+  return string === '[object Function]' ||
+    (typeof fn === 'function' && string !== '[object RegExp]') ||
+    (typeof window !== 'undefined' &&
+     // IE8 and below
+     (fn === window.setTimeout ||
+      fn === window.alert ||
+      fn === window.confirm ||
+      fn === window.prompt))
+};
+
+},{}],81:[function(require,module,exports){
+
+exports = module.exports = trim;
+
+function trim(str){
+  return str.replace(/^\s*|\s*$/g, '');
+}
+
+exports.left = function(str){
+  return str.replace(/^\s*/, '');
+};
+
+exports.right = function(str){
+  return str.replace(/\s*$/, '');
+};
+
+},{}],82:[function(require,module,exports){
+var trim = require('trim')
+  , forEach = require('for-each')
+  , isArray = function(arg) {
+      return Object.prototype.toString.call(arg) === '[object Array]';
+    }
+
+module.exports = function (headers) {
+  if (!headers)
+    return {}
+
+  var result = {}
+
+  forEach(
+      trim(headers).split('\n')
+    , function (row) {
+        var index = row.indexOf(':')
+          , key = trim(row.slice(0, index)).toLowerCase()
+          , value = trim(row.slice(index + 1))
+
+        if (typeof(result[key]) === 'undefined') {
+          result[key] = value
+        } else if (isArray(result[key])) {
+          result[key].push(value)
+        } else {
+          result[key] = [ result[key], value ]
+        }
+      }
+  )
+
+  return result
+}
+},{"for-each":79,"trim":81}],83:[function(require,module,exports){
 'use strict';
 
 require('babelify/polyfill');
-var data = require('./malts.json');
+var xhr = require('xhr');
 
 var filters = {};
 
@@ -3681,7 +3422,7 @@ function filterAll(malt, filter) {
 
 function renderMalts(malts) {
   insertAt('tbody', malts.map(function (malt) {
-    return '\n<tr>\n  <td>' + malt.name + '</td>\n  <td>' + malt.origin + '</td>\n  <td>' + malt['yield'] + '</td>\n  <td>' + malt.ebc + '</td>\n  <td>' + malt.diasticPower + '</td>\n  <td>' + malt.description + '</td>\n  <td>' + malt.maxPercentage + '</td>\n  <td>' + (malt.requireMask ? 'Ja' : 'Nei') + '</td>\n</tr>\n    ';
+    return '\n<tr>\n  <td>' + malt.name + '</td>\n  <td>' + malt.origin + '</td>\n  <td>' + malt['yield'] + '</td>\n  <td>' + malt.ebc + '</td>\n  <td>' + malt.diasticPower + '</td>\n  <td>' + malt.description + '</td>\n  <td>' + malt.maxPercentage + '</td>\n  <td>' + malt.requiresMash + '</td>\n</tr>\n    ';
   }).join(''));
 }
 
@@ -3736,10 +3477,38 @@ function addFilterFromClick(e) {
   rerenderMalts();
 }
 
-//Render stuff
-renderMalts(data.malts);
-renderDefinitions(data.attributes);
-renderHeader(data.attributes);
+xhr({ uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CELUjjOdThRp9kZ4OtuAY/o5u89zd/public/basic?alt=json' }, function (err, res, body) {
+  var data = JSON.parse(body).feed.entry;
+
+  var metadata = data.map(function (d) {
+    var fields = /^display: (.*), description: (.*)$/.exec(d.content.$t);
+    return {
+      id: d.title.$t,
+      display: fields[1],
+      description: fields[2]
+    };
+  });
+  renderDefinitions(metadata);
+  renderHeader(metadata);
+});
+
+xhr({ uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CELUjjOdThRp9kZ4OtuAY/od6/public/basic?alt=json' }, function (err, res, body) {
+  var data = JSON.parse(body).feed.entry;
+
+  var malts = data.map(function (d) {
+    var fields = /^origin: (.*), yield: (.*), ebc: (.*), diasticpower: (.*), description: (.*), maxpercentage: (.*), requiresmash: (.*)$/.exec(d.content.$t);
+    return {
+      name: d.title.$t,
+      origin: fields[1],
+      'yield': fields[2],
+      ebc: fields[3],
+      diasticPower: fields[4],
+      description: fields[5],
+      maxPercentage: fields[6],
+      requiresMash: fields[7] };
+  });
+  renderMalts(malts);
+});
 
 //Add listeners
 Array.from(document.querySelectorAll('.filter')).forEach(function (n) {
@@ -3753,4 +3522,4 @@ document.querySelector('#fjern-filter').addEventListener('click', function (e) {
   rerenderMalts();
 });
 
-},{"./malts.json":1,"babelify/polyfill":76}]},{},[77]);
+},{"babelify/polyfill":75,"xhr":76}]},{},[83]);

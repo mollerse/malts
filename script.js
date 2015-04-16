@@ -1,5 +1,5 @@
 require('babelify/polyfill');
-const data = require('./malts.json');
+const xhr = require('xhr');
 
 var filters = {};
 
@@ -23,7 +23,7 @@ function renderMalts(malts) {
   <td>${malt.diasticPower}</td>
   <td>${malt.description}</td>
   <td>${malt.maxPercentage}</td>
-  <td>${malt.requireMask ? "Ja" : "Nei"}</td>
+  <td>${malt.requiresMash}</td>
 </tr>
     `;
   }).join(''));
@@ -79,10 +79,39 @@ function addFilterFromClick(e) {
   rerenderMalts();
 }
 
-//Render stuff
-renderMalts(data.malts);
-renderDefinitions(data.attributes);
-renderHeader(data.attributes);
+xhr({uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CELUjjOdThRp9kZ4OtuAY/o5u89zd/public/basic?alt=json'}, function(err, res, body) {
+  var data = JSON.parse(body).feed.entry;
+
+  var metadata = data.map(function(d) {
+    var fields = /^display: (.*), description: (.*)$/.exec(d.content.$t)
+    return {
+      id: d.title.$t,
+      display: fields[1],
+      description: fields[2]
+    }
+  });
+  renderDefinitions(metadata);
+  renderHeader(metadata);
+});
+
+xhr({uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CELUjjOdThRp9kZ4OtuAY/od6/public/basic?alt=json'}, function(err, res, body) {
+  var data = JSON.parse(body).feed.entry;
+
+  var malts = data.map(function(d) {
+    var fields = /^origin: (.*), yield: (.*), ebc: (.*), diasticpower: (.*), description: (.*), maxpercentage: (.*), requiresmash: (.*)$/.exec(d.content.$t)
+    return {
+      name: d.title.$t,
+      origin: fields[1],
+      yield: fields[2],
+      ebc: fields[3],
+      diasticPower: fields[4],
+      description: fields[5],
+      maxPercentage: fields[6],
+      requiresMash: fields[7],
+    }
+  });
+  renderMalts(malts);
+});
 
 //Add listeners
 Array.from(document.querySelectorAll('.filter')).forEach(n => n.addEventListener('click', addFilterFromClick));
