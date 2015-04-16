@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "babelify": "^6.0.2",
+    "beefy": "^2.1.5",
+    "browserify": "^9.0.8"
+  },
+  "scripts": {
+    "start": "beefy script.js:bundle.js --index index.html --live --open -- -t babelify",
+    "js": "browserify script.js -t babelify -o bundle.js"
+  }
+}

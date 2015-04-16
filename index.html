@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Maltoversikt</title>
+    <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+    table {
+        border-spacing: 0px;
+        border: 1px solid black;
+    }
+    table thead tr {
+        background:black;
+        color:white;
+    }
+    table td, table th {
+        padding: 5px 10px 5px 10px;
+    }
+    table td {
+        border-bottom: 1px solid black;
+    }
+    #forklaring {
+        background: #CCC;
+        padding: 20px;
+        border: 1px solid black;
+        margin-bottom: 10px;
+        display:flex;
+        flex-wrap: wrap;
+        width: 40%;
+    }
+    dd {
+      width: 64%;
+      margin: 0;
+    }
+    dt {
+      width: 33%;
+      font-weight: bold;
+    }
+    .filters {
+        pointer-events: none;
+        width: 100%;
+        padding: 0 20px;
+    }
+    .filter {
+      display: flex;
+    }
+    .filter h3 {
+        width: 10%;
+        margin: 0;
+        font-size: 100%;
+    }
+    .filter a, #fjern-filter {
+        pointer-events: all;
+        display: inline-block;
+        cursor: pointer;
+        padding: 0 2.5px;
+        text-decoration: underline;
+    }
+    .filter a.isSelected {
+      font-weight: bold;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Oversikt over alle Malttypene</h1>
+    <h2>Forklaring</h2>
+    <dl id="forklaring"></dl>
+
+    <h2>Filtering</h2>
+    <ul class="filters">
+      <li data-name="kategorier" class="filter">
+          <h3>Kategorier</h3>
+          <a data-filter="All|Belgisk" data-property="description">Belgiske Ales</a>
+          <a data-filter="All|Engelsk|Mild" data-property="description">Engelske Ales</a>
+          <a data-filter="All|Lyse|Lager|Pils" data-property="description">Lyse Ale / Lagere</a>
+          <a data-filter="All|Mørk" data-property="description">Mørke Ale</a>
+      </li>
+      <li data-name="sorter" class="filter">
+          <h3>Sorter</h3>
+          <a data-filter="All|Bayer" data-property="description">Bayer</a>
+          <a data-filter="All|Bock" data-property="description">Bock</a>
+          <a data-filter="All|Brown|Brun" data-property="description">Brown Ales</a>
+          <a data-filter="All|Hvite|Wit|Hvete" data-property="description">Hveteøl</a>
+          <a data-filter="All|IPA" data-property="description">IPA</a>
+          <a data-filter="All|Lager|Pils" data-property="description">Lager/Pils</a>
+          <a data-filter="All|Mild" data-property="description">Mild</a>
+          <a data-filter="All|Old Ales" data-property="description">Old Ales</a>
+          <a data-filter="All|Porter" data-property="description">Porter</a>
+          <a data-filter="All|Stout" data-property="description">Stouts</a>
+          <a data-filter="All|Trappist|Abbey" data-property="description">Trappist/Abbey</a>
+      </li>
+      <li data-name="smak" class="filter">
+          <h3>Smak</h3>
+          <a data-filter="Brent|Svidd" data-property="description">Brent</a>
+          <a data-filter="Kaffe" data-property="description">Kaffe</a>
+          <a data-filter="Kjeks|Biscuit" data-property="description">Kjeks</a>
+          <a data-filter="Nøtt" data-property="description">Nøtt</a>
+          <a data-filter="Røkt" data-property="description">Røkt</a>
+          <a data-filter="Sjokolade" data-property="description">Sjokolade</a>
+          <a data-filter="Tørr" data-property="description">Tørr</a>
+      </li>
+      <li data-name="farge" class="filter">
+          <h3>Farge</h3>
+          <a data-filter="Brun" data-property="description">Brun</a>
+          <a data-filter="Rød" data-property="description">Rød</a>
+          <a data-filter="Chocolate|Carafa|Roasted|ChocWheat" data-property="">Svart</a>
+      </li>
+      <li data-name="land" class="filter">
+          <h3>Land</h3>
+          <a data-filter="Belgia" data-property="origin">Belgia</a>
+          <a data-filter="England" data-property="origin">England</a>
+          <a data-filter="Tyskland" data-property="origin">Tyskland</a>
+          <a data-filter="USA" data-property="origin">USA</a>
+          <a data-filter="Other" data-property="origin">Andre</a>
+      </li>
+    </ul>
+    <div>
+      <a id="fjern-filter">Fjern filtrering</a>
+    </div>
+
+    <h2>Maltliste</h2>
+    <table>
+      <thead><tr></tr></thead>
+      <tbody></tbody>
+    </table>
+    <script src="bundle.js"></script>
+  </body>
+</html>
