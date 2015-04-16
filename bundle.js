@@ -3407,6 +3407,7 @@ require('babelify/polyfill');
 var xhr = require('xhr');
 
 var filters = {};
+var malts;
 
 function filterAll(malt, filter) {
   var matcher = new RegExp(filter, 'i');
@@ -3443,7 +3444,7 @@ function insertAt(selector, html) {
 }
 
 function filteredMalts() {
-  return data.malts.filter(function (malt) {
+  return malts.filter(function (malt) {
     return Object.keys(filters).map(function (k) {
       return filters[k];
     }).every(function (filter) {
@@ -3495,7 +3496,7 @@ xhr({ uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CE
 xhr({ uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CELUjjOdThRp9kZ4OtuAY/od6/public/basic?alt=json' }, function (err, res, body) {
   var data = JSON.parse(body).feed.entry;
 
-  var malts = data.map(function (d) {
+  malts = data.map(function (d) {
     var fields = /^origin: (.*), yield: (.*), ebc: (.*), diasticpower: (.*), description: (.*), maxpercentage: (.*), requiresmash: (.*)$/.exec(d.content.$t);
     return {
       name: d.title.$t,

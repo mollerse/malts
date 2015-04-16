@@ -2,6 +2,7 @@ require('babelify/polyfill');
 const xhr = require('xhr');
 
 var filters = {};
+var malts;
 
 function filterAll(malt, filter) {
   var matcher = new RegExp(filter, 'i');
@@ -49,7 +50,7 @@ function insertAt(selector, html) {
 }
 
 function filteredMalts() {
-  return data.malts.filter(function(malt) {
+  return malts.filter(function(malt) {
     return Object.keys(filters)
       .map(k => filters[k])
       .every(filter => filter.prop ? malt[filter.prop].match(filter.filter, 'i') : filterAll(malt, filter.filter));
@@ -69,10 +70,10 @@ function addFilterFromClick(e) {
 
   if(el.classList.contains('isSelected')) {
     delete filters[name];
-    el.classList.remove('isSelected')
+    el.classList.remove('isSelected');
   } else {
     Array.from(container.querySelectorAll('.filter a')).forEach(n => n.classList.remove('isSelected'));
-    el.classList.add('isSelected')
+    el.classList.add('isSelected');
     filters[name] = {prop, filter};
   }
 
@@ -83,12 +84,12 @@ xhr({uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CEL
   var data = JSON.parse(body).feed.entry;
 
   var metadata = data.map(function(d) {
-    var fields = /^display: (.*), description: (.*)$/.exec(d.content.$t)
+    var fields = /^display: (.*), description: (.*)$/.exec(d.content.$t);
     return {
       id: d.title.$t,
       display: fields[1],
       description: fields[2]
-    }
+    };
   });
   renderDefinitions(metadata);
   renderHeader(metadata);
@@ -97,8 +98,8 @@ xhr({uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CEL
 xhr({uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CELUjjOdThRp9kZ4OtuAY/od6/public/basic?alt=json'}, function(err, res, body) {
   var data = JSON.parse(body).feed.entry;
 
-  var malts = data.map(function(d) {
-    var fields = /^origin: (.*), yield: (.*), ebc: (.*), diasticpower: (.*), description: (.*), maxpercentage: (.*), requiresmash: (.*)$/.exec(d.content.$t)
+  malts = data.map(function(d) {
+    var fields = /^origin: (.*), yield: (.*), ebc: (.*), diasticpower: (.*), description: (.*), maxpercentage: (.*), requiresmash: (.*)$/.exec(d.content.$t);
     return {
       name: d.title.$t,
       origin: fields[1],
@@ -108,7 +109,7 @@ xhr({uri: 'https://spreadsheets.google.com/feeds/list/1NH7wpE65AA5SjmNx6_vvj3CEL
       description: fields[5],
       maxPercentage: fields[6],
       requiresMash: fields[7],
-    }
+    };
   });
   renderMalts(malts);
 });
